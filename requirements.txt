@@ -1,0 +1,4 @@
+Django==2.2.4
+django-graphql-jwt
+django-cors-headers==3.7.0
+graphene-django
