@@ -3,3 +3,5 @@ django-graphql-jwt
 django-cors-headers==3.7.0
 graphene-django
 python-dotenv==0.16.0
+channels==2.4.0
+graphene-subscriptions=1.0.2

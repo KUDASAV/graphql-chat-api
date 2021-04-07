@@ -1,5 +1,6 @@
 from api.graphql.mutations import Mutation
 from api.graphql.querys import Query
+from api.graphql.subscriptions import Subscription
 import graphene
 
 class Query(Query, graphene.ObjectType):
@@ -8,4 +9,7 @@ class Query(Query, graphene.ObjectType):
 class Mutation(Mutation, graphene.ObjectType):
     pass
 
-schema = graphene.Schema(query=Query, mutation=Mutation)
+class Subscription(Subscription):
+    pass
+
+schema = graphene.Schema(query=Query, mutation=Mutation, subscription=Subscription)

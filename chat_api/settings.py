@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_subscriptions',
     'graphene_django',
-    'api'
+    'channels',
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
@@ -75,7 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'chat_api.wsgi.application'
-
+ASGI_APPLICATION = "chat_api.routing.application"
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -139,3 +141,11 @@ AUTHENTICATION_BACKENDS = [
     'graphql_jwt.backends.JSONWebTokenBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+# setup channels for subscriptions
+CHANNELS_WS_PROTOCOLS = ["graphql-ws", ]
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}

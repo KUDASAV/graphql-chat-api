@@ -73,7 +73,6 @@ class create_conversation(graphene.Mutation):
             users.append(get_object_or_404(get_user_model(), id=member))
 
         conversation = Conversation(name=name)
-
         conversation.save()
 
         conversation.members.add(*users)
